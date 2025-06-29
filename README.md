@@ -1,68 +1,99 @@
-# Gene-Expression-EDA
-Gene Expression Data Analysis — Breast Cancer Progression
-This project focuses on the cleaning, preprocessing, and exploratory analysis of a breast cancer gene expression dataset. The goal is to prepare a clean, manageable subset for analysis and visualization to better understand gene expression patterns across different breast tissue conditions.
+#Comparative Analysis of DCIS vs Healthy Samples
+Project Description
+This project involves the analysis of gene expression data from breast tissue samples at various stages, including Healthy (HN), Atypical Ductal Hyperplasia (ADH), Ductal Carcinoma In Situ (DCIS), and Stromal (SH) tissue. The goal is to understand how gene expression patterns change between healthy and cancerous conditions, specifically focusing on DCIS vs. Healthy (HN) comparison.
 
-The dataset originally contains microarray gene expression profiles from 12 patients across various stages of breast cancer progression, including normal tissue, atypical ductal hyperplasia (ADH), ductal carcinoma in situ (DCIS), and invasive ductal carcinoma (IDC).
+The workflow includes:
 
-For this analysis, the dataset was filtered to focus on 5 patients and a subset of ~200 genes, making it computationally efficient for demonstration, learning, and analysis purposes.
+Data Cleaning and Preprocessing
 
-Data Cleaning Process:
-The original dataset contained approximately 22,283 genes (rows) and 32 samples (columns).
+Exploratory Data Analysis (EDA)
 
-The cleaning steps were:
+Dimensionality Reduction (PCA)
 
-Sample Selection:
-Selected data corresponding to 5 patients representing multiple conditions:
+Differential Gene Expression Analysis (Volcano Plot)
 
-Normal (HN)
+Dataset Source
+Citation:
+Emery LA, Tripathi A, King C, Kavanah M et al. Early dysregulation of cell adhesion and extracellular matrix pathways in breast cancer progression. Am J Pathol. 2009 Sep;175(3):1292-302. PMID: 19700746
 
-Atypical Ductal Hyperplasia (ADH)
+Dataset Description
+Expression File: Contains gene expression levels across various patient samples.
 
-Ductal Carcinoma In Situ (DCIS)
+Annotation File: Provides mapping of gene IDs to gene symbols and descriptions.
 
-Stromal (SH)
+Original Dataset Stats:
+~22,000 genes
 
-Gene Annotation Merge:
-Merged the gene expression data with an annotation file to include gene symbols and gene titles for easier biological interpretation.
+32 samples (12 patients across different conditions)
 
-Null Value Handling:
-Removed rows where gene symbols were missing (NaN) to ensure all genes are properly annotated.
+Subset for This Project:
+195 genes after filtering for missing data and selecting top genes of interest.
 
-Duplicate Handling:
-For genes with duplicate gene symbols, the mean of their expression values was taken.
+17 samples (5 patients with conditions HN, ADH, DCIS, SH).
 
-Subset Creation:
-A filtered dataset of 200 genes was created. After removing nulls and duplicates, the final subset contained 195 genes across 17 samples (for the selected 5 patients).
+Data Cleaning Steps
+Merged Expression Data with Annotation:
+Matched gene IDs between expression and annotation files.
 
-Cleaned Dataset Information:
-File: cleaned_gene_expression_subset.csv
+Removed Missing Values:
+Dropped genes with missing gene symbols (null or '---').
 
-Content:
-Contains expression levels of 195 genes across 17 samples, with metadata columns for gene symbol and condition labels (e.g., Normal, ADH, DCIS, SH).
+Handled Duplicate Genes:
+For genes appearing multiple times, calculated the mean expression value.
 
-Exploratory Data Analysis (EDA):
-Analysis Performed:
+Removed Zero-Variance Genes:
+Removed genes that had no variation across samples (i.e., same expression everywhere).
+
+Exploratory Data Analysis (EDA)
 Distribution Analysis:
-Plotted histograms to inspect the overall distribution of gene expression values. Most genes exhibited low expression, with a few highly expressed genes — indicating a right-skewed distribution typical in gene expression data.
+Created histograms to check gene expression distributions.
 
-Boxplots:
-Visualized the spread, median, and variability of expression levels for each sample. This helped detect variability and potential outlier patterns across conditions.
+Found that the data was right-skewed, meaning most genes have low expression while a few have very high expression.
+
+Boxplot:
+Visualized expression distributions for each sample.
+
+Identified differences in median expression levels and variability across conditions.
 
 Correlation Heatmap:
-Displayed sample-to-sample correlation to check consistency and similarity between biological conditions. Observed which samples are more or less correlated (e.g., some DCIS samples were less correlated with others).
+Assessed sample-to-sample correlation.
 
-Principal Component Analysis (PCA):
-Applied PCA for dimensionality reduction. This allowed us to observe clustering patterns of samples based on conditions, showing separation between different tissue types (e.g., Normal vs. DCIS).
+Observed that most biological replicates within the same condition have high correlation, while DCIS samples showed more variability, suggesting biological heterogeneity.
 
-Key Insights:
-Biological Variation:
-Samples cluster based on biological conditions, confirming meaningful variation between Normal, ADH, DCIS, and Stromal tissues.
+Principal Component Analysis (PCA)
+Purpose of PCA:
+Reduce dimensionality to capture the most important patterns in the data.
 
-High Variability Genes:
-PCA and boxplots highlighted that certain conditions exhibited greater variability, which may represent key biological changes during cancer progression.
+Visualize whether samples cluster based on conditions.
 
-Data Readiness:
-This subset is now suitable for further analysis such as differential expression analysis, clustering, or supervised machine learning tasks.
+Key Findings:
+PC1 (54.1% variance) and PC2 (16.4% variance) capture most variability.
+
+Some clustering observed between conditions, but with overlap.
+
+DCIS samples showed more spread, suggesting heterogeneity in gene expression patterns.
+
+Differential Expression Analysis (Volcano Plot)
+Comparison: DCIS vs Healthy (HN)
+Thresholds Used:
+
+Log2 Fold Change ≥ 1 (upregulated in DCIS)
+
+Log2 Fold Change ≤ -1 (downregulated in DCIS)
+
+p-value < 0.05 (statistical significance)
+
+Results:
+No genes were significantly upregulated in DCIS.
+
+One gene (NM_004078) was significantly downregulated in DCIS, meaning it had higher expression in Healthy samples compared to DCIS.
+
+This result reflects analysis on a small subset (195 genes). A full dataset analysis would likely yield more biologically meaningful results.
+
+
+
+
+
 
 
 
