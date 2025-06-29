@@ -88,6 +88,8 @@ No genes were significantly upregulated in DCIS.
 
 One gene (NM_004078) was significantly downregulated in DCIS, meaning it had higher expression in Healthy samples compared to DCIS.
 
+CSRP1, a gene involved in cytoskeletal organization and cell adhesion, was found to be differentially expressed in DCIS compared to healthy breast tissue in this analysis. This observation aligns with previous studies highlighting the early dysregulation of cell adhesion pathways in breast cancer development (Emery et al., 2009).
+
 This result reflects analysis on a small subset (195 genes). A full dataset analysis would likely yield more biologically meaningful results.
 
 
