@@ -92,6 +92,29 @@ CSRP1, a gene involved in cytoskeletal organization and cell adhesion, was found
 
 This result reflects analysis on a small subset (195 genes). A full dataset analysis would likely yield more biologically meaningful results.
 
+Technologies Used
+Python
+
+Pandas — data manipulation
+
+NumPy — numerical computing
+
+Seaborn & Matplotlib — visualization
+
+Scikit-learn — PCA
+
+SciPy/Statsmodels — statistical tests (for volcano plot)
+
+Citation and Acknowledgement
+Dataset Source:
+Emery LA, Tripathi A, King C, Kavanah M, et al. Am J Pathol. 2009 Sep;175(3):1292-302. PMID: 19700746
+
+Contributor: Noor Ul Ain — (Self-taught Python and Data Science learner with a background in Biochemistry).
+
+Project Status
+Completed for educational and learning purposes.
+Future Work: Extend this to full dataset analysis and integrate machine learning models for classification.
+
 
 
 
